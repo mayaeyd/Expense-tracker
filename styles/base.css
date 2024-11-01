@@ -1,16 +1,53 @@
 @import url('./../utilities/fonts.css');
 
+
+
 nav{
     background-color: #f0f0f0;
-    width: auto;
+    width: auto 25%;
     position: fixed;
+
+    height: 100%;
+}
+
+nav > div{
+    margin: 20px 20px 50px 20px;
+    align-items: center;
+} 
+
+nav > div > h1{
+    font-family: 'Litera Heavy';
+    color: #005dff;
+    font-size: large;
+    font-weight: bold;
+}
+
+nav > ul > div{
+    align-items: center;
+}
+
+nav > div > img{
+    border-radius: 5px;
+    height:50px;
+    width: 50px;
+    margin-right: 15px;
+    box-shadow: #5c5b5b21 1px 1px 1px 1px;
 }
 
 nav>ul{
     gap:20px;
+    overflow: auto;
+    margin-left: 20px;
+    margin-right: 50px;
+    
 }
 
-nav > ul > li{
+nav > ul > div > li{
+    letter-spacing: 1px;
+    list-style: none;
     font-family: 'YDYoonche L';
+    cursor: pointer;
+    text-align: center;
+    margin-left: 30px;
 }
 
