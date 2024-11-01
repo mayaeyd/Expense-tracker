@@ -1,0 +1,16 @@
+@import url('./../utilities/fonts.css');
+
+nav{
+    background-color: #f0f0f0;
+    width: auto;
+    position: fixed;
+}
+
+nav>ul{
+    gap:20px;
+}
+
+nav > ul > li{
+    font-family: 'YDYoonche L';
+}
+
