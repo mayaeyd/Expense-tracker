@@ -4,11 +4,6 @@
     box-sizing: border-box;
 }
 
-iframe{
-    border: none;
-    height: auto;
-}
-
 .flex{
     display: flex;
 }

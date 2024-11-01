@@ -1,12 +1,14 @@
 @import url('./../utilities/fonts.css');
 
+body{
+    background-color: #f0f0f0;
+}
 
 
 nav{
     background-color: #f0f0f0;
-    width: auto 25%;
+    width: auto;
     position: fixed;
-
     height: 100%;
 }
 
@@ -51,3 +53,15 @@ nav > ul > div > li{
     margin-left: 30px;
 }
 
+main{
+    margin-left: 220px;
+}
+
+.dashboard-content{
+    background-color: #ffffff;
+    height: 100%;
+    width: 98%;
+    border-radius: 10px;
+    margin:10px;
+    padding: 10px;
+}
