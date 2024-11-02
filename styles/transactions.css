@@ -1,0 +1,60 @@
+@import url('./../utilities/fonts.css');
+
+
+.transactions-content{
+    display: grid;
+    gap: 10px;
+    padding: 10px;
+    grid-template-columns: 1fr 2fr; 
+    grid-template-rows: auto 1fr;
+    height: 100vh;
+}
+
+.grid-item {
+    background-color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    border-radius: 10px;
+    box-shadow:  #5c5b5b21 1px 1px 1px 1px;
+    padding: 20px;
+    font-size: 30px;
+}
+
+.item1 {
+    grid-row: 1 / span 2; 
+    grid-column: 1;
+    align-items: center;
+}
+
+.item2 {
+    grid-row: 1 /span 2;         
+    grid-column: 2;
+}
+
+.item3 {
+    grid-row: 2;          
+    grid-column: 2;
+    display: none;
+}
+
+.memoji-container{
+    height: 33%; 
+}
+
+.memoji-container img {
+    height: 100%;               
+    aspect-ratio: 1 / 1;   
+    border-radius: 50%;       
+    background-color: #f0f0f0;
+    object-fit: cover; 
+}
+
+.transactions-history{
+    margin-top: 50px;
+}
+
+.transactions-history h2 {
+    font-family: 'YDYoonche L';
+    font-size: 1.7rem;
+    letter-spacing: 1px;
+    font-weight: lighter;
+}
