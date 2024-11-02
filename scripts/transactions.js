@@ -24,7 +24,9 @@ document.getElementById("transactions-form").addEventListener('submit',(e)=>{
         name:name,
         amount:amount,
         tel: phoneNumber,
-        currency: currency
+        currency: currency,
+        date: new Date().toLocaleDateString(),
+        time: new Date().toLocaleTimeString()
     };
 
     addTransaction(transaction);
