@@ -10,7 +10,25 @@ document.getElementById("send-money").addEventListener('click',()=>{
     }
 });
 
+document.getElementById("transactions-form").addEventListener('submit',(e)=>{
+    e.preventDefault();
+    const name = document.getElementById("reciever-name").value;
+    const amount = document.getElementById('transaction-amount').value;
+    const phoneNumber = document.getElementById('reciever-tel').value;
+    const currency = document.getElementById('currency').value;
 
+    const transaction = {
+        id:Date.now().toString(),
+        name:name,
+        amount:amount,
+        tel: phoneNumber,
+        currency: currency
+    };
+
+    console.log(transaction);
+    
+
+});
 
 
 
