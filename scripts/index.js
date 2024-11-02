@@ -28,11 +28,10 @@ function loadTransactions(){
 
         transactionsContainer.appendChild(transactionElement);
 
-        if (transaction.currency === 'USD') {
-            balance -= parseFloat(transaction.amount);
-        } else if (transaction.currency === 'LBP') {
-            balance -= parseFloat(transaction.amount) / 90000;
-        }
+
+        balance -= parseFloat(transaction.amount);
+        
+    
     }); 
     
     document.getElementById('balance').innerHTML = `${balance.toFixed(2)}`;

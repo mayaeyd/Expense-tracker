@@ -1,3 +1,5 @@
+balance=parseFloat(document.getElementById('balance').innerHTML);
+
 //open the form
 document.getElementById("send-money").addEventListener('click',()=>{
     const item2= document.getElementById('item2');
@@ -15,19 +17,25 @@ document.getElementById("transactions-form").addEventListener('submit',(e)=>{
     e.preventDefault();
 
     const name = document.getElementById("reciever-name").value;
-    const amount = document.getElementById('transaction-amount').value;
+    let amount = document.getElementById('transaction-amount').value;
     const phoneNumber = document.getElementById('reciever-tel').value;
     const currency = document.getElementById('currency').value;
 
-    const transaction = {
-        id:Date.now().toString(),
-        name:name,
-        amount:amount,
-        tel: phoneNumber,
-        currency: currency,
-        date: new Date().toLocaleDateString(),
-        time: new Date().toLocaleTimeString()
-    };
+    if(currency === 'LBP') { amount = amount/90000 }
 
-    addTransaction(transaction);
+    if(balance >= amount){
+        const transaction = {
+            id:Date.now().toString(),
+            name:name,
+            amount:amount,
+            tel: phoneNumber,
+            currency: currency,
+            date: new Date().toLocaleDateString(),
+            time: new Date().toLocaleTimeString()
+        };
+    
+        addTransaction(transaction);
+    }else{
+        alert('Insufficient balance to complete this transaction');
+    }
 });
