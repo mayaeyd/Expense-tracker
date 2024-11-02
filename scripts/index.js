@@ -23,8 +23,8 @@ function loadTransactions(){
         transactionElement.classList.add('transaction-element');
         transactionElement.innerHTML = 
             `<p>Name: ${transaction.name}</p>
-            <p>Amount: ${transaction.amount}${transaction.currency}</p>
-            <p>${transaction.date}${transaction.time}`;
+            <p>Amount: ${parseFloat(transaction.amount).toFixed(2)}USD</p>
+            <p><span>${transaction.date}</span><span>${transaction.time}</span><p>`;
 
         transactionsContainer.appendChild(transactionElement);
 

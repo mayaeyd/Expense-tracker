@@ -28,6 +28,11 @@ button{
     cursor: pointer;
 }
 
+button a{
+    text-decoration: none;
+    color: black;
+}
+
 .flex{
     display: flex;
 }
@@ -77,12 +82,23 @@ button{
     margin-right: 4px;
 }
 
+.transaction-element p:nth-child(3){
+    margin-top: 15px;
+    color: #888888;
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+    font-size: smaller;
+}
+
 #transactions-list{
     max-height: 250px;
     overflow-y: auto;
     font-family: 'YDYoonche L';
     font-size: 14px;
     font-weight: lighter;
+    display: flex;
+    flex-direction: column;
 }
 
 #transactions-list::-webkit-scrollbar {
