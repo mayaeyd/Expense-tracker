@@ -13,12 +13,30 @@ iframe{
     height: auto;
 }
 
+button{
+    background-color: #f0f0f0;
+    border: none;
+    height: auto;
+    font-family: 'YDYoonche L';
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding:10px;
+    border-radius: 10px;
+    gap:10px;
+    font-weight: lighter;
+}
+
 .flex{
     display: flex;
 }
 
 .column{
     flex-direction: column;
+}
+
+.gap{
+    gap: 20px;
 }
 
 .center{

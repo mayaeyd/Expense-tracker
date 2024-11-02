@@ -65,22 +65,31 @@
     align-items: flex-start;
 }
 
-button{
-    background-color: #f0f0f0;
-    border: none;
-    height: auto;
-    font-family: 'YDYoonche L';
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding:10px;
-    border-radius: 10px;
-    gap:10px;
-    font-weight: lighter;
-}
-
 .item2 > h2{
     font-family: 'YDYoonche L';
     font-weight: lighter;
     font-size: 1.2rem;
+}
+
+.transactions-form{
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    font-family: 'YDYoonche L';
+    font-weight: lighter;
+}
+
+.transactions-form input{
+    margin-top: 0;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    height: 30px;
+    width: 50%;
+    border: none;
+    padding: 10px;
+}
+
+.transactions-form input:focus{
+    outline: none;
+    border: 3px solid #005dff;
 }

@@ -52,6 +52,7 @@
                 </div>
                 <div class="transactions-history">
                     <h2>Transactions History</h2>
+                    <div id="transactionsList"></div>
                 </div>
             </div>
 
@@ -64,7 +65,30 @@
             </div>
 
             <div class="grid-item item3" id="item3">
-                <h1>hello</h1>
+                
+                <form id="transactions-form" class="transactions-form flex column full-width">
+                    <div class="flex column full-width center">
+                        <label for="name">Name</label>
+                        <input name="name" type="text" id="reciever-name" placeholder="Reciever's Name" required>
+                    </div>
+                    <div class="flex column full-width center">
+                        <label for="amount">Amount</label>
+                        <input name="amount" type="number" id="transaction-amount" placeholder="Amount" required>
+                    </div>
+                    <div class="flex column full-width center">
+                        <label for="tel">Phone Number</label>
+                        <input name="tel" type="tel" id="transactionPhoneNumber" placeholder="00-000000" pattern="[0-9]{2}-[0-9]{6}">
+                    </div>
+                    <div class="flex gap">
+                        <label for="currency">Transfer Currency</label>
+                        <select name="currency" id="currency">
+                            <option value="LBP">LBP</option>
+                            <option value="USD">USD</option>
+                        </select>
+                    </div>
+                    <button type="submit">Add Transaction</button>
+                </form>
+                
             </div>
 
         </section>
