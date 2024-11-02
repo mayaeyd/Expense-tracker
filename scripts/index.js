@@ -11,12 +11,30 @@ document.getElementById("send-money").addEventListener('click',()=>{
 });
 
 function addTransaction(transaction){
-    localStorage.setItem('transaction',JSON.stringify(transaction));
-    document.getElementById('transactions-list').innerHTML = localStorage.getItem('transaction');
+    //if not in storage, initialize as empty array
+    const transactions = JSON.parse(localStorage.getItem('transactions')) || []; 
+    transactions.push(transaction);
+    localStorage.setItem('transactions',JSON.stringify(transactions));
+    loadTransactions();
+}
+
+function loadTransactions(){
+    const transactionsContainer=document.getElementById('transactions-list');
+    transactionsContainer.innerHTML='';
+
+    const transactions = JSON.parse(localStorage.getItem('transactions')) || [];
+
+    transactions.forEach(transaction =>{
+        const transactionElement = document.createElement('div');
+        transactionElement.textContent = `Name: ${transaction.name}, Amount: ${transaction.amount}, Currency: ${transaction.currency}`;
+        transactionsContainer.appendChild(transactionElement);
+    });
+
 }
 
 document.getElementById("transactions-form").addEventListener('submit',(e)=>{
     e.preventDefault();
+
     const name = document.getElementById("reciever-name").value;
     const amount = document.getElementById('transaction-amount').value;
     const phoneNumber = document.getElementById('reciever-tel').value;

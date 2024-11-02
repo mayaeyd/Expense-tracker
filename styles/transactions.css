@@ -71,6 +71,11 @@
     font-size: 1.2rem;
 }
 
+#transactions-list{
+    height: auto;
+    overflow: scroll;
+}
+
 .transactions-form{
     align-items: center;
     justify-content: center;
