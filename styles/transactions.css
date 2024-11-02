@@ -7,7 +7,7 @@
     padding: 10px;
     grid-template-columns: 1fr 2fr; 
     grid-template-rows: auto 1fr;
-    height: 100vh;
+    height: 95vh;
 }
 
 .grid-item {

@@ -28,6 +28,10 @@ button{
     cursor: pointer;
 }
 
+button:hover{
+    background-color: #cccccc;
+}
+
 button a{
     text-decoration: none;
     color: black;
@@ -62,8 +66,12 @@ button a{
     height: 100%;
 }
 
+.pointer{
+    cursor: pointer;
+}
+
 .transactions-history{
-    margin-top: 50px;
+    margin-top: 40px;
 }
 
 .transactions-history h2 {
