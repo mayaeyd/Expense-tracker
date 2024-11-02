@@ -84,3 +84,9 @@ main > section > header > h2{
     font-size: 15px;
     margin-left: 20px;
 }
+
+main > section > aside{
+    box-shadow: #5c5b5b21 1px 1px 1px 1px;
+    height: 100%;
+    width: 40%;
+}
