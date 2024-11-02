@@ -1,3 +1,4 @@
+//open the form
 document.getElementById("send-money").addEventListener('click',()=>{
     const item2= document.getElementById('item2');
     const item3= document.getElementById("item3");

@@ -14,7 +14,10 @@ function loadTransactions(){
 
     transactions.forEach(transaction =>{
         const transactionElement = document.createElement('div');
-        transactionElement.textContent = `Name: ${transaction.name}, Amount: ${transaction.amount}, Currency: ${transaction.currency}`;
+        transactionElement.classList.add('transaction-element');
+        transactionElement.innerHTML = 
+            `<p>Name: ${transaction.name}</p>
+            <p>Amount: ${transaction.amount}${transaction.currency}</p>`;
         transactionsContainer.appendChild(transactionElement);
     });
 
