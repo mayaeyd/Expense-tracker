@@ -49,17 +49,6 @@
     object-fit: cover; 
 }
 
-.transactions-history{
-    margin-top: 50px;
-}
-
-.transactions-history h2 {
-    font-family: 'YDYoonche L';
-    font-size: 1.7rem;
-    letter-spacing: 1px;
-    font-weight: lighter;
-}
-
 .item2{
     justify-content: space-between;
     align-items: flex-start;
