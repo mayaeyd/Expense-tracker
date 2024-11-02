@@ -10,6 +10,11 @@ document.getElementById("send-money").addEventListener('click',()=>{
     }
 });
 
+function addTransaction(transaction){
+    localStorage.setItem('transaction',JSON.stringify(transaction));
+    document.getElementById('transactions-list').innerHTML = localStorage.getItem('transaction');
+}
+
 document.getElementById("transactions-form").addEventListener('submit',(e)=>{
     e.preventDefault();
     const name = document.getElementById("reciever-name").value;
@@ -25,9 +30,7 @@ document.getElementById("transactions-form").addEventListener('submit',(e)=>{
         currency: currency
     };
 
-    console.log(transaction);
-    
-
+    addTransaction(transaction);
 });
 
 

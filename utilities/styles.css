@@ -25,6 +25,7 @@ button{
     border-radius: 10px;
     gap:10px;
     font-weight: lighter;
+    cursor: pointer;
 }
 
 .flex{
