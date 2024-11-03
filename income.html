@@ -82,9 +82,31 @@
                     <p>Category/Source</p>
                 </div>
             </div>
-            <div class="income-form hidden" id="income-form">
-                <form>
-                    <input type="text" placeholder="Enter details" />
+            <div class="hidden" id="income-form">
+                <form class="income-form flex column full-width">
+                    <div class="flex column full-width center">
+                        <label for="name">Name</label>
+                        <input name="name" type="text" id="sender-name" placeholder="Sender's Name" maxlength="50" required>
+                    </div>
+                    <div class="flex column full-width center">
+                        <label for="amount">Amount</label>
+                        <input name="amount" type="number" id="income-amount" placeholder="Amount Sent" min="0" step="0.01" required>
+                    </div>
+                    <div class="flex column full-width center">
+                        <label for="tel">Phone Number</label>
+                        <input name="tel" type="tel" id="sender-tel" placeholder="00-000000" pattern="[0-9]{2}-[0-9]{6}">
+                    </div>
+                    <div class="flex column full-width center">
+                        <label for="tel">Category/Source</label>
+                        <input name="source" type="text" id="source" placeholder="e.g. Salary" maxlength="50">
+                    </div>
+                    <div class="flex gap">
+                        <label for="currency">Income Currency</label>
+                        <select name="currency" id="currency">
+                            <option value="LBP">LBP</option>
+                            <option value="USD">USD</option>
+                        </select>
+                    </div>
                     <button type="submit">Submit</button>
                 </form>
             </div>

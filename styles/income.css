@@ -109,3 +109,26 @@ section > h1{
     color: #6b6b6b;
 }
 
+.income-form{
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    font-family: 'YDYoonche L';
+    font-weight: lighter;
+}
+
+.income-form input{
+    margin-top: 0;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    height: 30px;
+    width: 50%;
+    border: none;
+    padding: 10px;
+}
+
+.income-form input:focus{
+    outline: none;
+    border: 3px solid #005dff;
+}
