@@ -14,3 +14,16 @@ document.addEventListener('DOMContentLoaded',()=>{
     document.getElementById('expenses').style.color='#E02C2A';
 
 });
+
+document.getElementById('toggle-income-btn').addEventListener('click',()=>{
+    const tableContainer = document.getElementById('table-container');
+    const incomeForm = document.getElementById('income-form');
+
+    if(incomeForm.style.display==='none'){
+        tableContainer.style.display='none';
+        incomeForm.style.display='block';
+    }else if(tableContainer.style.display==='none'){
+        tableContainer.style.display='block';
+        incomeForm.style.display='none';
+    }
+});

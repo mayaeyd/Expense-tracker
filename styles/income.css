@@ -33,7 +33,7 @@ section > h1{
     background-color: #f0f0f0;  
 }
 
-.item2 {
+.item2, .income-form {
     grid-row: 3;
     grid-column: 1;       
 }
