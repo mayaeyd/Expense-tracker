@@ -35,7 +35,23 @@ section > h1{
 
 .item2, .income-form {
     grid-row: 3;
-    grid-column: 1;       
+    grid-column: 1;
+    position: relative;       
+}
+
+.hidden{
+    display: none;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
 
 .item1>p{

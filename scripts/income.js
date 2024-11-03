@@ -16,14 +16,29 @@ document.addEventListener('DOMContentLoaded',()=>{
 });
 
 document.getElementById('toggle-income-btn').addEventListener('click',()=>{
+    event.preventDefault();
+
     const tableContainer = document.getElementById('table-container');
     const incomeForm = document.getElementById('income-form');
 
-    if(incomeForm.style.display==='none'){
-        tableContainer.style.display='none';
-        incomeForm.style.display='block';
-    }else if(tableContainer.style.display==='none'){
-        tableContainer.style.display='block';
-        incomeForm.style.display='none';
+    if(incomeForm.classList.contains('hidden')){
+        tableContainer.style.transition = 'opacity 0.5s ease';
+        tableContainer.style.opacity = '0';
+
+        setTimeout(() => {
+            tableContainer.classList.add('hidden');
+            incomeForm.classList.remove('hidden');
+            incomeForm.style.animation = 'slideIn 0.5s forwards';
+        }, 500);
+    }else if(tableContainer.classList.contains('hidden')){
+        incomeForm.style.transition = 'opacity 0.5s ease';
+        incomeForm.style.opacity = '0';
+
+        setTimeout(() => {
+            incomeForm.classList.add('hidden');
+            tableContainer.classList.remove('hidden');
+            tableContainer.style.animation = 'slideIn 0.5s forwards';
+        }, 500);
     }
+    
 });
