@@ -16,7 +16,7 @@ section > h1{
     font-weight: lighter;
     font-size: 1.1rem;
     letter-spacing: 0.5px;
-    margin-top: 40px;
+    margin-top: 20px;
     margin-left: 10px;
 }
 
@@ -38,7 +38,7 @@ section > h1{
     grid-column: 1;       
 }
 
-.item1 p{
+.item1>p{
     font-family: 'YDYoonche L';
     margin-bottom: 30px;
 }
@@ -48,6 +48,48 @@ section > h1{
     margin-bottom: 20px;
     font-weight: lighter;
     letter-spacing: 0.5px;
-    font-size: 2rem;
+    font-size: 2.5rem;
+}
+
+.item1 button{
+    background-color: white;
+}
+
+.item1 > div {
+    gap: 40px;
+}
+
+.balance-container{
+    justify-content: space-between;
+    align-items: center;
+}
+
+.item1 > div p{
+    font-family: 'YDYoonche L';
+    font-weight: lighter;
+    letter-spacing: 0.5px;
+}
+
+#total-income, #expenses {
+    font-family: 'YDYoonche L';
+    font-weight: lighter;
+    letter-spacing: 0.5px;
+    margin-top: 5px;
+    font-size: 1.5rem;
+}
+
+.item2 > div{
+    justify-content: space-between;
+    background-color: #f0f0f0;
+    border-radius: 30px;
+    padding: 20px;
+}
+
+.item2 > div > p{
+    font-family: 'YDYoonche L';
+    font-weight: lighter;
+    letter-spacing: 0.5px;
+    font-size: 0.8rem;
+    color: #6b6b6b;
 }
 
