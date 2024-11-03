@@ -35,7 +35,10 @@ function loadTransactions(){
     }); 
     
     document.getElementById('balance').innerHTML = `${balance.toFixed(2)}`;
+    localStorage.setItem('currentBalance',balance.toFixed(2));
 }
+
+
 
 document.addEventListener("DOMContentLoaded", () => {
     loadTransactions();

@@ -1,0 +1,26 @@
+main > section{
+    display: grid;
+    gap: 10px;
+    padding: 10px;
+    grid-template-rows: 1fr 2fr;
+    height: 100vh;
+}
+
+.grid-item {
+    background-color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    border-radius: 10px;
+    box-shadow:  #5c5b5b21 1px 1px 1px 1px;
+    padding: 20px;
+}
+
+.item1 { 
+    grid-row: 1;
+    grid-column: 1;
+    align-items: center;
+}
+
+.item2 {
+    grid-row: 2;
+    grid-column: 1;         
+}
