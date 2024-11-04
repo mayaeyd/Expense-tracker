@@ -99,6 +99,7 @@ section > h1{
     background-color: #f0f0f0;
     border-radius: 30px;
     padding: 20px;
+    border-bottom: 0.5px solid #6b6b6b;
 }
 
 .item2 > div > p{
@@ -136,9 +137,11 @@ section > h1{
 .income-table-row{
     font-family: 'YDYoonche L';
     justify-content: space-between;
+    row-gap: 5px;
 }
 
 .row-element{
-    max-width: 100px;
-    text-overflow: clip;
+    max-width: 75px;
+    white-space: normal;
+    word-break: break-all;
 }
