@@ -28,10 +28,12 @@ function loadTransactions(){
     transactions.forEach(transaction =>{
         const transactionElement = document.createElement('div');
         transactionElement.classList.add('transaction-element');
+        transactionElement.classList.add('pointer');
         transactionElement.innerHTML = 
             `<p>Name: ${transaction.name}</p>
             <p>Amount: ${parseFloat(transaction.amount).toFixed(2)}USD</p>
-            <p><span>${transaction.date}</span><span>${transaction.time}</span><p>`;
+            <p><span>${transaction.date}</span><span>${transaction.time}</span><p>
+            <button class="refund-button" style="display: block;">Refund</button>`;
 
         transactionsContainer.appendChild(transactionElement);   
         
@@ -48,6 +50,18 @@ function loadTransactions(){
         `;
 
         tableContainer.appendChild(transactionRow);
+
+        const refundButton = transactionElement.querySelector('.refund-button');
+        refundButton.addEventListener('click', () => {
+            balance += parseFloat(transaction.amount);
+            document.getElementById('balance').innerHTML = `${balance.toFixed(2)}`;
+            localStorage.setItem('currentBalance', balance.toFixed(2));
+
+            const updatedTransactions = transactions.filter(tx => tx !== transaction);
+            localStorage.setItem('transactions', JSON.stringify(updatedTransactions));
+
+            loadTransactions();
+        });
     }); 
     
     document.getElementById('balance').innerHTML = `${balance.toFixed(2)}`;
