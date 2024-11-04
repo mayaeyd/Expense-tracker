@@ -132,3 +132,13 @@ section > h1{
     outline: none;
     border: 3px solid #005dff;
 }
+
+.income-table-row{
+    font-family: 'YDYoonche L';
+    justify-content: space-between;
+}
+
+.row-element{
+    max-width: 100px;
+    text-overflow: clip;
+}

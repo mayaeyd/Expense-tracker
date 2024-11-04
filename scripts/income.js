@@ -67,16 +67,37 @@ document.getElementById("income-form").addEventListener('submit',(e)=>{
         time: new Date().toLocaleTimeString()
     }
     
+    addIncome(income);
+    loadIncome(income);
+
+    document.getElementById('form').reset();
+});
+
+function addIncome(income){
+    let incomes = JSON.parse(localStorage.getItem('incomes')) || [];
+    incomes.push(income);
+    localStorage.setItem('incomes', JSON.stringify(incomes));
+}
+
+function loadIncome(income){
     const tableContainer = document.getElementById('table-container');
     const incomeElement = document.createElement('div')
-    incomeElement.innerHTML=`            <div class="flex">
-                    <p>${income.name}</p>
-                    <p>${income.date}</p>
-                    <p>${income.amount}</p>
-                    <p>${income.currency}</p>
-                    <p>${income.source}</p>
+    incomeElement.innerHTML=`<div class="flex income-table-row">
+                    <p class="row-element">${income.name}</p>
+                    <p class="row-element">${income.date}</p>
+                    <p class="row-element">${income.amount}</p>
+                    <p class="row-element">${income.currency}</p>
+                    <p class="row-element">${income.source}</p>
                 </div>
                 `
-    tableContainer.appendChild(incomeElement)
     
-});
+    tableContainer.appendChild(incomeElement);
+}
+
+function loadIncomes() {
+    const incomes = JSON.parse(localStorage.getItem('incomes')) || [];
+    incomes.forEach(income => loadIncome(income));
+}
+
+// load incomes on page load
+window.addEventListener('DOMContentLoaded', loadIncomes);
