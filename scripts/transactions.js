@@ -1,5 +1,45 @@
 balance=parseFloat(document.getElementById('balance').innerHTML);
 
+
+function loadBalance() {
+    balance = parseFloat(localStorage.getItem('currentBalance')) || 0;
+    document.getElementById('balance').innerHTML = `${balance.toFixed(2)}`;
+}
+
+function addTransaction(transaction) {
+    const transactions = JSON.parse(localStorage.getItem('transactions')) || [];
+    transactions.push(transaction);
+    localStorage.setItem('transactions', JSON.stringify(transactions));
+
+    balance -= parseFloat(transaction.amount);
+    localStorage.setItem('currentBalance', balance.toFixed(2));
+
+    loadTransactions();
+}
+
+function loadTransactions(){
+    const transactionsContainer=document.getElementById('transactions-list');    
+    transactionsContainer.innerHTML='';
+
+    balance = parseFloat(localStorage.getItem('currentBalance')) || 0;;
+
+    const transactions = JSON.parse(localStorage.getItem('transactions')) || [];
+
+    transactions.forEach(transaction =>{
+        const transactionElement = document.createElement('div');
+        transactionElement.classList.add('transaction-element');
+        transactionElement.innerHTML = 
+            `<p>Name: ${transaction.name}</p>
+            <p>Amount: ${parseFloat(transaction.amount).toFixed(2)}USD</p>
+            <p><span>${transaction.date}</span><span>${transaction.time}</span><p>`;
+
+        transactionsContainer.appendChild(transactionElement);         
+    }); 
+    
+    document.getElementById('balance').innerHTML = `${balance.toFixed(2)}`;
+    localStorage.setItem('currentBalance',balance.toFixed(2));
+}
+
 //open the form
 document.getElementById("send-money").addEventListener('click',()=>{
     const item2= document.getElementById('item2');
@@ -39,3 +79,9 @@ document.getElementById("transactions-form").addEventListener('submit',(e)=>{
         alert('Insufficient balance to complete this transaction');
     }
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+    loadBalance();
+    loadTransactions();
+});
+

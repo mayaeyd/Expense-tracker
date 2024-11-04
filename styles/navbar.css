@@ -58,3 +58,100 @@ main{
     margin-left: 220px;
 }
 
+
+
+@import url('./../utilities/fonts.css');
+
+
+/* Flex container for nav and main
+body {
+    display: flex;
+    min-height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Sidebar styling */
+/* nav {
+    background-color: #f0f0f0;
+    width: 220px;
+    height: 100vh;
+    position: fixed;
+    overflow-y: auto;
+    transition: transform 0.3s ease;
+}
+
+nav > div {
+    margin: 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+nav > div > h1 {
+    font-family: 'Litera Heavy';
+    color: #005dff;
+    font-size: large;
+    font-weight: bold;
+    text-align: center;
+}
+
+nav > ul {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 0;
+}
+
+nav > ul > div > li {
+    list-style: none;
+}
+
+nav > ul > div > li > a {
+    letter-spacing: 1px;
+    font-family: 'YDYoonche L';
+    text-decoration: none;
+    color: black;
+    padding: 10px;
+    display: block;
+} */
+
+/* Main content styling */
+/* main {
+    flex-grow: 1; */
+    /* margin-left: 220px; Initial space for sidebar */
+    /* padding: 20px;
+    transition: margin-left 0.3s ease;
+} */
+
+/* Responsive adjustments */
+/* @media (max-width: 768px) { */
+    /* nav { */
+        /* transform: translateX(-100%); Hide sidebar off-screen */
+    /* } */
+
+    /* nav.active { */
+        /* transform: translateX(0); Show sidebar */
+    /* } */
+
+     /* main { */
+        /* margin-left: 0; Full width for main content */
+    /* }  */
+
+    /* Show button to toggle sidebar */
+    /* .menu-button {
+        display: block;
+        position: fixed;
+        top: 15px;
+        left: 15px;
+        z-index: 1;
+        font-size: 24px;
+        background: #005dff;
+        color: #fff;
+        border: none;
+        padding: 10px;
+        cursor: pointer;
+    }
+} */ 
+
+
