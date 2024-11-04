@@ -6,6 +6,23 @@ function loadBalance(){
     document.getElementById('balance').innerHTML = `${balance.toFixed(2)}`;
 }
 
+function loadTransactions() {
+    const transactionsContainer = document.getElementById('transactions-list');
+    transactionsContainer.innerHTML = ''; // Clear previous transactions
+
+    const transactions = JSON.parse(localStorage.getItem('transactions')) || [];
+    transactions.forEach(transaction => {
+        const transactionElement = document.createElement('div');
+        transactionElement.classList.add('transaction-element');
+        transactionElement.innerHTML = `
+            <p>Name: ${transaction.name}</p>
+            <p>Amount: ${parseFloat(transaction.amount).toFixed(2)} ${transaction.currency}</p>
+            <p><span>${transaction.date}</span><span>${transaction.time}</span></p>
+        `;
+        transactionsContainer.appendChild(transactionElement);
+    });
+}
+
 function renderIncomeTable() {
     const summaryTableDiv = document.getElementById('summary-table');
 

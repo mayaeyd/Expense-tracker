@@ -33,7 +33,21 @@ function loadTransactions(){
             <p>Amount: ${parseFloat(transaction.amount).toFixed(2)}USD</p>
             <p><span>${transaction.date}</span><span>${transaction.time}</span><p>`;
 
-        transactionsContainer.appendChild(transactionElement);         
+        transactionsContainer.appendChild(transactionElement);   
+        
+        const tableContainer = document.getElementById('transaction-table-container'); 
+        const transactionRow = document.createElement('div');
+        transactionRow.innerHTML = `
+            <div class="flex transaction-table-row">
+                <p class="row-element">${transaction.name}</p>
+                <p class="row-element">${transaction.date}</p>
+                <p class="row-element" style="color: #E02C2A;">${parseFloat(transaction.amount).toFixed(2)}</p>
+                <p class="row-element">${transaction.currency}</p>
+                <p class="row-element">${transaction.tel}</p>
+            </div>
+        `;
+
+        tableContainer.appendChild(transactionRow);
     }); 
     
     document.getElementById('balance').innerHTML = `${balance.toFixed(2)}`;

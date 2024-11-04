@@ -56,13 +56,26 @@
                 </div>
             </div>
 
-            <div class="grid-item item2 flex" id="item2">
-                <button id="send-money">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-send"><path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z"/><path d="m21.854 2.147-10.94 10.939"/></svg>
-                    Send Money
-                </button>
-                <h2>Remaining Balance: <span id="balance">2000</span>$</h2>
+            <div class="grid-item " id="item2">
+                <div class="flex item2">
+                    <button id="send-money">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-send"><path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z"/><path d="m21.854 2.147-10.94 10.939"/></svg>
+                        Send Money
+                    </button>
+                    <h2>Remaining Balance: <span id="balance">2000</span>$</h2>
+                </div>
+                
+                <div class="flex income-table-header">
+                    <p>Receiver</p>
+                    <p>Date</p>
+                    <p>Amount</p>
+                    <p>Currency</p>
+                    <p>Phone Number</p>
+                </div>
+                
+                <div id="transaction-table-container"></div>
             </div>
+            
 
             <div class="grid-item item3" id="item3">
                 
@@ -90,6 +103,7 @@
                 </form>
                 
             </div>
+            
 
         </section>
     </main>
