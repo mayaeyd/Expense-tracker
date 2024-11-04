@@ -1,6 +1,13 @@
 let balance = parseFloat(localStorage.getItem('currentBalance')) || 0;
 
 document.addEventListener('DOMContentLoaded', () => {
+    if (!localStorage.getItem('currentBalance')) {
+        localStorage.setItem('currentBalance', '2000');
+    }
+    loadBalance();
+});
+
+document.addEventListener('DOMContentLoaded', () => {
     loadBalance();
     loadIncomes();
     updateBalanceArrow();
@@ -89,9 +96,7 @@ function addIncome(income){
     localStorage.setItem('incomes', JSON.stringify(incomes));
 
     balance = parseFloat(localStorage.getItem('currentBalance')) || 0;
-    balance = income.currency === 'USD'
-        ? balance + income.amount
-        : balance + (income.amount / 90000);
+    balance = income.currency === 'USD' ? balance + income.amount : balance + (income.amount / 90000);
 
     localStorage.setItem('currentBalance', balance.toFixed(2));
     document.getElementById('balance').innerHTML = localStorage.getItem('currentBalance');

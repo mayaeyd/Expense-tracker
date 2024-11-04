@@ -1,8 +1,15 @@
 balance=parseFloat(document.getElementById('balance').innerHTML);
 
+document.addEventListener('DOMContentLoaded', () => {
+    if (!localStorage.getItem('currentBalance')) {
+        localStorage.setItem('currentBalance', '2000');
+    }
+    loadBalance();
+});
+
 
 function loadBalance() {
-    balance = parseFloat(localStorage.getItem('currentBalance')) || 0;
+    balance = parseFloat(localStorage.getItem('currentBalance')) || 2000;
     document.getElementById('balance').innerHTML = `${balance.toFixed(2)}`;
 }
 
@@ -14,6 +21,7 @@ function addTransaction(transaction) {
     balance -= parseFloat(transaction.amount);
     localStorage.setItem('currentBalance', balance.toFixed(2));
 
+    loadBalance();
     loadTransactions();
 }
 
