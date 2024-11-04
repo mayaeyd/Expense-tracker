@@ -82,5 +82,22 @@ main > section > header > h2{
     font-size: 1.2rem;
 }
 
+.dashboard-table-row {
+    font-family: 'YDYoonche L';
+    justify-content: space-between;
+    row-gap: 5px;
+    font-size: medium;
+    background-color: #f0f0f0;
+    margin-top: 10px;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.row-element {
+    max-width: 75px;
+    white-space: normal;
+    word-break: break-all;
+}
+
 
 
