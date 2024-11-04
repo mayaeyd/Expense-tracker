@@ -16,9 +16,9 @@ document.getElementById("send-money").addEventListener('click',()=>{
 document.getElementById("transactions-form").addEventListener('submit',(e)=>{
     e.preventDefault();
 
-    const name = document.getElementById("reciever-name").value;
+    const name = document.getElementById("receiver-name").value;
     let amount = document.getElementById('transaction-amount').value;
-    const phoneNumber = document.getElementById('reciever-tel').value;
+    const phoneNumber = document.getElementById('receiver-tel').value;
     const currency = document.getElementById('currency').value;
 
     if(currency === 'LBP') { amount = amount/90000 }

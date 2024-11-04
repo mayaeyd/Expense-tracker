@@ -1,5 +1,6 @@
+const balance = localStorage.getItem('currentBalance');
+
 document.addEventListener('DOMContentLoaded',()=>{
-    const balance = localStorage.getItem('currentBalance');
     console.log(balance);
     
     document.getElementById('balance').innerHTML =balance;
@@ -14,6 +15,7 @@ document.addEventListener('DOMContentLoaded',()=>{
     document.getElementById('expenses').style.color='#E02C2A';
 
 });
+
 
 document.getElementById('toggle-income-btn').addEventListener('click',()=>{
     event.preventDefault();
@@ -39,6 +41,29 @@ document.getElementById('toggle-income-btn').addEventListener('click',()=>{
             tableContainer.classList.remove('hidden');
             tableContainer.style.animation = 'slideIn 0.5s forwards';
         }, 500);
+    } 
+});
+
+
+document.getElementById("income-form").addEventListener('submit',(e)=>{
+    e.preventDefault();
+
+    const name = document.getElementById("sender-name").value;
+    let amount = document.getElementById('income-amount').value;
+    const phoneNumber = document.getElementById('sender-tel').value;
+    const source = document.getElementById('source').value;
+    const currency = document.getElementById('currency').value;
+
+    if(currency === 'LBP') { amount = amount/90000 }
+
+    const income={
+        id:Date.now().toString(),
+        name:name,
+        amount:amount,
+        tel:phoneNumber,
+        source:source,
+        currency:currency,
+        date: new Date().toLocaleDateString(),
+        time: new Date().toLocaleTimeString()
     }
-    
 });
