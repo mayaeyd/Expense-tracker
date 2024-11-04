@@ -10,8 +10,10 @@ function loadTransactions() {
     const transactionsContainer = document.getElementById('transactions-list');
     const incomes = JSON.parse(localStorage.getItem('incomes')) || [];
     const dashboardTableContainer = document.getElementById('dashboard-table-container');
+    
 
-    transactionsContainer.innerHTML = ''; // Clear previous transactions
+    transactionsContainer.innerHTML = ''; 
+    dashboardTableContainer.innerHTML = '';
 
     incomes.forEach(income => {
         const incomeElement = document.createElement('div');
@@ -28,6 +30,7 @@ function loadTransactions() {
     });
 
     const transactions = JSON.parse(localStorage.getItem('transactions')) || [];
+
     transactions.forEach(transaction => {
         const transactionElement = document.createElement('div');
         transactionElement.classList.add('transaction-element');
@@ -37,8 +40,21 @@ function loadTransactions() {
             <p><span>${transaction.date}</span><span>${transaction.time}</span></p>
         `;
         transactionsContainer.appendChild(transactionElement);
+
+        const transactionRow = document.createElement('div');
+        transactionRow.innerHTML = `
+            <div class="flex dashboard-table-row">
+                <p class="row-element">${transaction.name}</p>
+                <p class="row-element">${transaction.date}</p>
+                <p class="row-element" style="color: #E02C2A;">${parseFloat(transaction.amount).toFixed(2)}</p>
+                <p class="row-element">${transaction.currency}</p>
+                <p class="row-element">${transaction.tel || 'N/A'}</p>
+            </div>
+        `;
+        dashboardTableContainer.appendChild(transactionRow);
     });
-}
+
+} 
 
 
 document.addEventListener("DOMContentLoaded", () => {
