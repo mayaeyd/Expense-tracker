@@ -1,4 +1,4 @@
-const balance = localStorage.getItem('currentBalance');
+let balance = localStorage.getItem('currentBalance');
 
 document.addEventListener('DOMContentLoaded',()=>{
     console.log(balance);
@@ -55,7 +55,7 @@ document.getElementById("income-form").addEventListener('submit',(e)=>{
     const currency = document.getElementById('currency').value;
 
     if(currency === 'LBP') { amount = amount/90000 }
-
+    
     const income={
         id:Date.now().toString(),
         name:name,
@@ -66,4 +66,17 @@ document.getElementById("income-form").addEventListener('submit',(e)=>{
         date: new Date().toLocaleDateString(),
         time: new Date().toLocaleTimeString()
     }
+    
+    const tableContainer = document.getElementById('table-container');
+    const incomeElement = document.createElement('div')
+    incomeElement.innerHTML=`            <div class="flex">
+                    <p>${income.name}</p>
+                    <p>${income.date}</p>
+                    <p>${income.amount}</p>
+                    <p>${income.currency}</p>
+                    <p>${income.source}</p>
+                </div>
+                `
+    tableContainer.appendChild(incomeElement)
+    
 });
