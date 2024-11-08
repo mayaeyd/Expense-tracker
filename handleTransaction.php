@@ -2,7 +2,7 @@
 
 include "connection.php";
 
-print_r($_POST);
+//print_r($_POST);
 
 $username = $_POST['username'];
 $name = $_POST['name'];
@@ -12,19 +12,26 @@ $currency = $_POST['currency'];
 $amount = $_POST['amount'];
 $date = date('Y-m-d');
 
-var_dump($username, $name, $amount, $tel, $currency, $amount, $date);
+//var_dump($username, $name, $amount, $tel, $currency, $amount, $date);
 
-// $query = $connection->prepare("INSERT INTO TABLE users (name) VALUES ($username)");
-// $query->bind_param("s", $username);
-// $query->execute();
-// echo "aded";
+$query = "INSERT INTO users (name) VALUES (?)";
 
-// // if(isset($_POST['username'])){
-// //     $username = $_POST['username'];
-// //     echo "The name passed is ". $username;
-// // }else{
-// //     echo "No name was passed";
-// // }
+$stmt= $connection->prepare($query);
+
+if (!$stmt) {
+    die("Statement preparation failed: " . $connection->error);
+}
+
+$stmt->bind_param("s", $username);
+
+if ($stmt->execute()) {
+    echo "Record Saved!!";  
+} else {
+    echo "Error: " . $stmt->error; 
+}
+
+$stmt->close();
+$connection->close();
 
 echo "PHP is working";
 
