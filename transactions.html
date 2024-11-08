@@ -75,15 +75,16 @@
                 
                 <form action="handleTransaction.php" method="post" id="transactions-form" class="transactions-form flex column full-width">
                     <div class="flex column full-width center">
-                        <label for="name">Name</label>
+                        <input type="hidden" name="username" id="username">
+                        <label for="receiver-name">Name</label>
                         <input name="name" type="text" id="receiver-name" placeholder="Receiver's Name" maxlength="50" required>
                     </div>
                     <div class="flex column full-width center">
-                        <label for="amount">Amount</label>
+                        <label for="transaction-amount">Amount</label>
                         <input name="amount" type="number" id="transaction-amount" placeholder="Amount" min="0" step="0.01" required>
                     </div>
                     <div class="flex column full-width center">
-                        <label for="tel">Phone Number</label>
+                        <label for="receiver-tel">Phone Number</label>
                         <input name="tel" type="tel" id="receiver-tel" placeholder="00-000000" pattern="[0-9]{2}-[0-9]{6}">
                     </div>
                     <div class="flex gap">
@@ -95,12 +96,14 @@
                     </div>
                     <button type="submit">Add Transaction</button>
                 </form>
-                
             </div>
-            
-
         </section>
     </main>
+    <script>
+        var username = "Adams";
+        document.getElementById('username').value = username; 
+        console.log(document.getElementById('username').value);
+    </script>
     <script src="./scripts/transactions.js"></script>
 
 </body>

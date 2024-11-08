@@ -2,7 +2,7 @@
 
 //include "connection.php"
 
-//print_r($_POST);
+print_r($_POST);
 
 // if(isset($_POST['username'])){
 //     $username = $_POST['username'];

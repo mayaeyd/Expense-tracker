@@ -90,7 +90,6 @@ document.getElementById("send-money").addEventListener('click',()=>{
 });
 
 document.getElementById("transactions-form").addEventListener('submit',(e)=>{
-    e.preventDefault();
 
     const name = document.getElementById("receiver-name").value;
     let amount = document.getElementById('transaction-amount').value;
