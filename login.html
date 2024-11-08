@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.min.css">
+</head>
+<body>
+    <form action="./apis/logUser.php" method="post">
+        <label for="username" >Username</label>
+        <input type="text" id="username" name="username">
+        <label for="password">Password</label>
+        <input id="password" type="password" name="password">
+        <button type="submit">Login</button>
+    </form>
+</body>
+</html>
+
+<!-- cors cross origin resource sharing, it is a poilicy to allow only certain certain origins to access origins from certain domiain -->
+ <!-- website wil then have a unique domain, so it will only let this domain use the resources -->
+  <!-- By setting a header in php ,
+    header('Access-Control-Allow-Origin: *');
+    header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE');
+    header('Access-Control-Allow-Headers: Content-Type'); 
+  -->
