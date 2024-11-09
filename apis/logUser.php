@@ -14,12 +14,10 @@ $query->bind_param("s", $username);
 $query->execute();
 
 $result = $query->get_result();
-$user = $result->fetch_assoc();
 
-if ($user) {
+if ($result->num_rows != 0) {
 
-    echo "Stored hash: " . $user["password"];
-    echo "Submitted password: " . $password;
+    $user = $result->fetch_assoc();
 
     $check = password_verify($password, $user["password"]);
 
@@ -27,9 +25,9 @@ if ($user) {
         //send a json response with the user id
         echo json_encode([
             "status"=>"Login Successful",
-            "user"=>$user["id"],
+            "id"=>$user["id"], //pass user id to JS
         ]);
-        header("Location: ../dashboard.html");
+        //header("Location: ../dashboard.html");
     }else{
         echo json_encode([
             "status" => "Password Incorrect",
