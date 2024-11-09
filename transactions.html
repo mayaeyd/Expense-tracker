@@ -41,9 +41,6 @@
         <section class="transactions-content">
 
             <div class="grid-item item1 flex column">
-                <div class="memoji-container">
-                    <img src="./assets/images/memoji.png">
-                </div>
                 <div class="transactions-history">
                     <h2>Transactions History</h2>
                     <div id="transactions-list"></div>
@@ -73,9 +70,8 @@
 
             <div class="grid-item item3" id="item3">
                 
-                <form action="handleTransaction.php" method="post" id="transactions-form" class="transactions-form flex column full-width">
+                <form action="./apis/handleTransaction.php" method="get" id="transactions-form" class="transactions-form flex column full-width">
                     <div class="flex column full-width center">
-                        <input type="hidden" name="username" id="username">
                         <label for="receiver-name">Name</label>
                         <input name="name" type="text" id="receiver-name" placeholder="Receiver's Name" maxlength="50" required>
                     </div>
@@ -99,11 +95,7 @@
             </div>
         </section>
     </main>
-    <script>
-        var username = "Adams";
-        document.getElementById('username').value = username; 
-        console.log(document.getElementById('username').value);
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="./scripts/transactions.js"></script>
 
 </body>

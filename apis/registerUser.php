@@ -5,7 +5,7 @@ include "connection.php";
 $username = $_POST['username'];
 $password = $_POST['password'];
 
-//$hashed = password_hash($password, PASSWORD_DEFAULT);
+$hashed = password_hash($password, PASSWORD_DEFAULT);
 
 $duplicate =  $connection->prepare("SELECT * FROM users WHERE name = ?");
 $duplicate->bind_param("s",$username);
@@ -19,7 +19,7 @@ if($duplicate->get_result()->num_rows>0){
         die("Statement preparation failed: " . $connection->error);
     }
 
-    $query->bind_param("ss",$username, $password);
+    $query->bind_param("ss",$username, $hashed);
     $query->execute();
 
     if ($query->affected_rows !=0) {

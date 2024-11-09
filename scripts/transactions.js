@@ -1,29 +1,11 @@
 balance=parseFloat(document.getElementById('balance').innerHTML);
 
-document.addEventListener('DOMContentLoaded', () => {
-    if (!localStorage.getItem('currentBalance')) {
-        localStorage.setItem('currentBalance', '2000');
-    }
-    loadBalance();
-});
-
 
 function loadBalance() {
     balance = parseFloat(localStorage.getItem('currentBalance')) || 2000;
     document.getElementById('balance').innerHTML = `${balance.toFixed(2)}`;
 }
 
-function addTransaction(transaction) {
-    const transactions = JSON.parse(localStorage.getItem('transactions')) || [];
-    transactions.push(transaction);
-    localStorage.setItem('transactions', JSON.stringify(transactions));
-
-    balance -= parseFloat(transaction.amount);
-    localStorage.setItem('currentBalance', balance.toFixed(2));
-
-    loadBalance();
-    loadTransactions();
-}
 
 function loadTransactions(){
     const transactionsContainer=document.getElementById('transactions-list');    
@@ -91,28 +73,29 @@ document.getElementById("send-money").addEventListener('click',()=>{
 
 document.getElementById("transactions-form").addEventListener('submit',(e)=>{
 
+    const userID = localStorage.getItem('userId'); 
+
     const name = document.getElementById("receiver-name").value;
     let amount = document.getElementById('transaction-amount').value;
     const phoneNumber = document.getElementById('receiver-tel').value;
     const currency = document.getElementById('currency').value;
 
-    if(currency === 'LBP') { amount = amount/90000 }
+    const url = `http://localhost/expense-tracker/apis/handleTransaction.php?name=${encodeURIComponent(name)}&amount=${encodeURIComponent(amount)}&tel=${encodeURIComponent(phoneNumber)}&currency=${encodeURIComponent(currency)}&userID=${encodeURIComponent(userID)}`;
 
-    if(balance >= amount){
-        const transaction = {
-            id:Date.now().toString(),
-            name:name,
-            amount:amount,
-            tel: phoneNumber,
-            currency: currency,
-            date: new Date().toLocaleDateString(),
-            time: new Date().toLocaleTimeString()
-        };
+    fetch(url, {
+        method: 'GET',
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log(data);
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+
     
-        addTransaction(transaction);
-    }else{
-        alert('Insufficient balance to complete this transaction');
-    }
+
+    
 });
 
 document.addEventListener("DOMContentLoaded", () => {

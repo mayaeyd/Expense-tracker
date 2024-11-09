@@ -21,7 +21,7 @@ loginBtn.addEventListener('click', async(event) =>{
             // Store the user ID in localStorage
             localStorage.setItem("userId", response.data.id);
             // Redirect to the dashboard
-            //window.location.href = "../dashboard.html";
+            window.location.href = 'http://localhost/expense-tracker/dashboard.html';
         } else {
             // Show the error message from the response
             alert(response.data.status);

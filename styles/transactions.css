@@ -19,7 +19,7 @@
 }
 
 .item1 {
-    grid-row: 1 / span 2; 
+    grid-row: 1; 
     grid-column: 1;
     align-items: center;
 }
@@ -38,12 +38,12 @@
 }
 
 .memoji-container{
-    height: 33%; 
+    height: 300px;
 }
 
 .memoji-container img {
     height: 100%;               
-    aspect-ratio: 1 / 1;   
+    /* aspect-ratio: 1 / 1;    */
     border-radius: 50%;       
     background-color: #f0f0f0;
     object-fit: cover; 
@@ -81,6 +81,11 @@
 .transactions-form input:focus{
     outline: none;
     border: 3px solid #005dff;
+}
+
+#transaction-table-container{
+    height: 900px;
+    overflow-y: scroll;
 }
 
 .transaction-table-row{

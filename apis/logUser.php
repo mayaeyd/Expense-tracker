@@ -27,7 +27,6 @@ if ($result->num_rows != 0) {
             "status"=>"Login Successful",
             "id"=>$user["id"], //pass user id to JS
         ]);
-        //header("Location: ../dashboard.html");
     }else{
         echo json_encode([
             "status" => "Password Incorrect",
