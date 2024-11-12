@@ -2,40 +2,50 @@
 
 include "connection.php";
 
-$username = $_POST['username'];
-$password = $_POST['password'];
+header("Content-Type: application/json");
 
+$username = $_POST['username'] ?? null;
+$password = $_POST['password'] ?? null;
+
+if (!$username || !$password) {
+    echo json_encode(["status" => "Error", "message" => "Username and password are required."]);
+    exit();
+}
+
+// Hash the password
 $hashed = password_hash($password, PASSWORD_DEFAULT);
 
-$duplicate =  $connection->prepare("SELECT * FROM users WHERE name = ?");
-$duplicate->bind_param("s",$username);
+// Check if the username already exists
+$duplicate = $connection->prepare("SELECT * FROM users WHERE name = ?");
+$duplicate->bind_param("s", $username);
 $duplicate->execute();
-if($duplicate->get_result()->num_rows>0){
-    echo "Username has already been taken";
-}else{
-    $query = $connection->prepare("INSERT INTO users (name,password) VALUES (?,?)");
+$result = $duplicate->get_result();
 
-    if (! $query) {
-        die("Statement preparation failed: " . $connection->error);
+if ($result->num_rows > 0) {
+    echo json_encode(["status" => "Error", "message" => "Username has already been taken."]);
+} else {
+    $query = $connection->prepare("INSERT INTO users (name, password) VALUES (?, ?)");
+    if (!$query) {
+        echo json_encode(["status" => "Error", "message" => "Statement preparation failed: " . $connection->error]);
+        exit();
     }
 
-    $query->bind_param("ss",$username, $hashed);
+    $query->bind_param("ss", $username, $hashed);
     $query->execute();
 
     if ($query->affected_rows > 0) {
-        // retrieve the ID of the newly inserted user
         $user_id = $query->insert_id;
         echo json_encode([
             "status" => "Login Successful",
-            "id" => $user_id  // send the user ID back to JS
+            "id" => $user_id
         ]);
-        exit();
     } else {
-        echo "Error: " . $query->error;
+        echo json_encode(["status" => "Error", "message" => "Error: " . $query->error]);
     }
     $query->close();
 }
 
+$duplicate->close();
 $connection->close();
 
 ?>

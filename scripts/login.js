@@ -16,7 +16,6 @@ loginBtn.addEventListener('click', async(event) =>{
         });
         console.log(response);
         
-
         if (response.data.status === "Login Successful") {
             // Store the user ID in localStorage
             localStorage.setItem("userId", response.data.id);
