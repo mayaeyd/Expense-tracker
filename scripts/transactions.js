@@ -1,5 +1,6 @@
 balance=parseFloat(document.getElementById('balance').innerHTML);
 
+//INSERT TRANSACTIONS FIRST
 
 function loadBalance() {
     balance = parseFloat(localStorage.getItem('currentBalance')) || 2000;
@@ -47,10 +48,8 @@ function loadTransactions(){
             document.getElementById('balance').innerHTML = `${balance.toFixed(2)}`;
             localStorage.setItem('currentBalance', balance.toFixed(2));
 
-            const updatedTransactions = transactions.filter(tx => tx !== transaction);
             localStorage.setItem('transactions', JSON.stringify(updatedTransactions));
 
-            loadTransactions();
         });
     }); 
     
@@ -85,7 +84,7 @@ document.getElementById("transactions-form").addEventListener('submit', (e) => {
     };
 
     // Send data using POST request
-    fetch("http://localhost/expense-tracker/apis/set_transactions.php", {
+    fetch("http://localhost/expense-tracker/apis/setTransactions.php", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
