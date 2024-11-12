@@ -71,19 +71,26 @@ document.getElementById("send-money").addEventListener('click',()=>{
     }
 });
 
-document.getElementById("transactions-form").addEventListener('submit',(e)=>{
+document.getElementById("transactions-form").addEventListener('submit', (e) => {
+    e.preventDefault();
 
-    const userID = localStorage.getItem('userId'); 
+    const userID = localStorage.getItem('userId'); // Retrieve user ID from localStorage
 
-    const name = document.getElementById("receiver-name").value;
-    let amount = document.getElementById('transaction-amount').value;
-    const phoneNumber = document.getElementById('receiver-tel').value;
-    const currency = document.getElementById('currency').value;
+    const transaction = {
+        name: document.getElementById("receiver-name").value,
+        amount: parseFloat(document.getElementById('transaction-amount').value),
+        tel: document.getElementById('receiver-tel').value,
+        currency: document.getElementById('currency').value,
+        userID: userID
+    };
 
-    const url = `http://localhost/expense-tracker/apis/handleTransaction.php?name=${encodeURIComponent(name)}&amount=${encodeURIComponent(amount)}&tel=${encodeURIComponent(phoneNumber)}&currency=${encodeURIComponent(currency)}&userID=${encodeURIComponent(userID)}`;
-
-    fetch(url, {
-        method: 'GET',
+    // Send data using POST request
+    fetch("http://localhost/expense-tracker/apis/set_transactions.php", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(transaction)
     })
     .then(response => response.json())
     .then(data => {
@@ -92,10 +99,6 @@ document.getElementById("transactions-form").addEventListener('submit',(e)=>{
     .catch(error => {
         console.error('Error:', error);
     });
-
-    
-
-    
 });
 
 document.addEventListener("DOMContentLoaded", () => {

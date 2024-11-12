@@ -8,11 +8,10 @@ include "connection.php";
 
 //gets userID from url
 $userID = $_GET['userID'];
-$name = $_POST['name'];
-$amount = $_POST['amount'];
-$tel = $_POST['tel'];
-$currency = $_POST['currency'];
-$amount = $_POST['amount'];
+$name = $_GET['name'];
+$amount = $_GET['amount'];
+$tel = $_GET['tel'];
+$currency = $_GET['currency'];
 $date = date('Y-m-d');
 
 $query = $connection->prepare("SELECT * FROM transactions WHERE userID = ?");
@@ -23,14 +22,23 @@ $result = $query->get_result();
 $transactions = [];
 
 //iterate over every row as $row and store it in array
-while($row = $result->fetch_assoc()){
-    $transactions[] = $row;
+if($result->num_rows > 0){
+    $transactions =[];
+    while($row = $result->fetch_assoc()){
+        $transactions[] = $row;
+    }
+    $response=[
+        "array"=> $transactions,
+    ];
+    echo json_encode($response);
+}else{$response=[
+        "status"=> "error",
+        "array"=> [],
+    ];
+    echo json_encode($response);
 }
 
-echo json_encode($transactions);
-
 $query->close();
-$connection->close();
 
 ?>
 

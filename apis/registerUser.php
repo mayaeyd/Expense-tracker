@@ -22,8 +22,13 @@ if($duplicate->get_result()->num_rows>0){
     $query->bind_param("ss",$username, $hashed);
     $query->execute();
 
-    if ($query->affected_rows !=0) {
-        header("Location: ../dashboard.html");
+    if ($query->affected_rows > 0) {
+        // retrieve the ID of the newly inserted user
+        $user_id = $query->insert_id;
+        echo json_encode([
+            "status" => "Login Successful",
+            "id" => $user_id  // send the user ID back to JS
+        ]);
         exit();
     } else {
         echo "Error: " . $query->error;
